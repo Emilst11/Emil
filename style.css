@@ -474,6 +474,11 @@ footer h1{
     }
 }
 @media only screen and (max-width : 767px) {
+    header{
+        background-color: #E0E7EB;
+        width: 100%;
+        height: 94vh;
+    }
     nav a{
         font-size: 0.7rem;
     }
