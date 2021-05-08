@@ -7,13 +7,15 @@
     <title>Portfolio</title>
 </head>
 <body>
+    <div id="progressBar"></div>
+    <div id="progressBarContainer"></div>
     <header>
         <nav>
-            <a href="" class="active">Home</a>
-            <a href="">About</a>
-            <a href="">Skills</a>
-            <a href="">Design</a>
-            <a href="">Contact</a>
+            <a href="#" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#coll">Design</a>
+            <a href="#contact">Contact</a>
         </nav>
         <section id="sec">
             <h1>Emil Setiawan</h1>
@@ -26,12 +28,12 @@
         <div class="wave" id="wave4" style="--i:4;"></div>
     </header>
     <main>
-        <div class="profil">
+        <div class="profil" id="about">
             <h1>Profile</h1>
             <p class="wow fadeUp">Nama saya Emil Setiawan, merupakan mahasiswa semester 6 jurusan Teknik Informatika di IT-PLN. Saya kelahiran Jakarta, Indonesia. Saya adalah mahasiswa yang tertarik dalam dunia UI/UX design dan front end web developer, walaupun masih dalam proses pembelajaran, semoga karya saya bisa disukai banyak orang</p>
             <img src="image/emil.png" alt="" class="wow fadeUp">
         </div>
-        <div class="skills">
+        <div class="skills" id="skills">
             <h1>Skills</h1>
             <div class="box-skill">
                 <div class="column">
@@ -148,7 +150,7 @@
             <input type="submit" class="submit wow fadeUp" value="Send">
         </div>
     </main>
-    <footer>
+    <footer id="contact">
         <h1>Follow me</h1>
         <div class="sosmed">
             <a href="" class="contact">
@@ -176,17 +178,27 @@
         let coll = document.getElementById('coll');
 
         window.addEventListener('scroll', function(){
+            var nav = document.querySelector("nav");
             let value = window.scrollY;
-
-            wave1.style.backgroundPositionX = value * 4 + 'px';
-            wave2.style.backgroundPositionX = 300 + value * -4 + 'px';
-            wave3.style.backgroundPositionX = 200 + value * 2 + 'px';
-            wave4.style.backgroundPositionX = 100 + value * -2 + 'px';
+            
+            nav.classList.toggle("sticky", window.scrollY);
+            wave1.style.backgroundPositionX = value * 0.8 + 'px';
+            wave2.style.backgroundPositionX = 300 + value * -0.8 + 'px';
+            wave3.style.backgroundPositionX = 250 + value * 1 + 'px';
+            wave4.style.backgroundPositionX = 100 + value * -1 + 'px';
             sec.style.backgroundPositionX = 90 + value * 0.2 + '%';
             sec.style.backgroundPositionY = 50 + value * -1 + '%';
-            coll.style.backgroundPositionX = value * 0.2 + '%';
-            coll.style.backgroundPositionY = value * -1 + '%';
+            coll.style.backgroundPositionX = value * 0.1 + '%';
+            coll.style.backgroundPositionY = value * -0.2 + '%';
         })
+
+        const progressBar = document.querySelector("#progressBar");
+        let totalPageHeight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = () => {
+            let newProgressHeight = (window.pageYOffset / totalPageHeight) * 100;
+            progressBar.style.height = `${newProgressHeight}%`;
+            progressBar.style.opacity = `${newProgressHeight}%`;
+        };
     </script>
 </body>
 </html>
