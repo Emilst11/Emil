@@ -411,6 +411,8 @@ textarea:focus{
     transition: 0.3s;
 }
 .ava{
+    display: flex;
+    align-items: center;
     padding: 5px;
     background: #ffffff;
     border-radius: 100%;
