@@ -12,7 +12,12 @@
 header{
     background-color: #E0E7EB;
     width: 100%;
-    height: 100vh;
+    height: 95vh;
+}
+header::after{
+    background: white;
+    width: 100%;
+    height: 100px;
 }
  /* scrollbar */
 @media only screen and (min-width: 1024px) { 
@@ -166,6 +171,7 @@ header .wave{
 
 /* main */
 main{
+    padding: 100px 0px 0px 0px;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
