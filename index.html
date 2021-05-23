@@ -7,8 +7,9 @@
     <title>Portfolio</title>
 </head>
 <body>
-    <div id="progressBar"></div>
-    <div id="progressBarContainer"></div>
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
     <header>
         <nav>
             <a href="#" class="active">Home</a>
@@ -37,21 +38,21 @@
             <h1>Skills</h1>
             <div class="box-skill">
                 <div class="column">
-                    <div class="row wow fadeUp">
+                    <div class="skill wow fadeUp">
                         <div class="box xd">
                             <img src="image/experience.png" alt="" style="width: 60px;">
                         </div>
                         <span class="bar"><span class="xd1 wow"></span>80%</span>
                     </div>
                     
-                    <div class="row wow fadeUp">
+                    <div class="skill wow fadeUp">
                         <div class="box figma">
                             <img src="image/figma.png" alt="" style="width: 60px;">
                         </div>
                         <span class="bar"><span class="figma1 wow"></span>75%</span>
                     </div>
     
-                    <div class="row wow fadeUp">
+                    <div class="skill wow fadeUp">
                         <div class="box ps">
                             <img src="image/photoshop.png" alt="" style="width: 60px;">
                         </div>
@@ -60,21 +61,21 @@
                 </div>
 
                 <div class="column">
-                    <div class="row wow fadeUp">
+                    <div class="skill wow fadeUp">
                         <div class="box html">
                             <img src="image/html-5.png" alt="" style="width: 40px;">
                         </div>
                         <span class="bar"><span class="html1 wow"></span>80%</span>
                     </div>
     
-                    <div class="row wow fadeUp">
+                    <div class="skill wow fadeUp">
                         <div class="box css">
                             <img src="image/css.png" alt="" style="width: 60px;">
                         </div>
                         <span class="bar"><span class="css1 wow"></span>70%</span>
                     </div>
     
-                    <div class="row wow fadeUp">
+                    <div class="skill wow fadeUp">
                         <div class="box js">
                             <img src="image/js.png" alt="" style="width: 40px;">
                         </div>
@@ -91,7 +92,7 @@
             <p>Koleksi design yang pernah saya buat ini ada yang udah pernah saya jual untuk kebutuhan tugas atau bisnis, seperti online shop, dan lainnya. Dan ada juga design yang saya buat untuk kebutuhan tugas kuliah saya sendiri, tapi saya kerjakan secara maksimal. Dan sebenarnya saya buat design ini juga saya implementasikan menjadi website dengan menggunakan html, css dan juga bootstrap</p>
         </div>
         <div class="project">
-            <div class="column left">
+            <div class="row">
                 <div class="card wow fadeUp">
                     <div class="card-head">
                         <img src="image/pjc1.png" alt="">
@@ -101,36 +102,23 @@
                     <div class="card-head">
                         <img src="image/pjc2.png" alt="">
                     </div>
-                    <div class="card-body">
-                        <p>Website ini di design responsif</p>
-                        <span>Adobe XD - <span>Figma</span></span>
-                    </div>
                 </div>
-            </div>
-            <div class="column right">
                 <div class="card wow fadeUp">
                     <div class="card-head">
                         <img src="image/pjc4.png" alt="">
-                    </div>
-                    <div class="card-body">
-                        <p>Website ini di design responsif</p>
-                        <span>Adobe XD - <span>Figma</span></span>
                     </div>
                 </div>
                 <div class="card wow fadeUp">
                     <div class="card-head">
                         <img src="image/pjc3.png" alt="">
                     </div>
-                    <div class="card-body">
-                        <p>Website ini di design responsif</p>
-                        <span>Adobe XD - <span>Figma</span></span>
-                    </div>
                 </div>
             </div>
+
         </div>
         <div class="chat">
             <h1>Interesting?</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tellus quam, ullamcorper eget tincidunt vel, iaculis sed diam. Nullam lacinia maximus accumsan. Aliquam molestie felis ac vestibulum aliquam.</p>
+            <p>Anda bisa menghubungi saya dibawah atau kirim pesan disini</p>
             <div class="ava wow fadeUp">
                 <img src="image/emil2.png" alt="">
             </div>
@@ -178,10 +166,17 @@
         let coll = document.getElementById('coll');
 
         window.addEventListener('scroll', function(){
-            var nav = document.querySelector("nav");
             let value = window.scrollY;
+            var nav = document.querySelector("nav");
             
-            nav.classList.toggle("sticky", window.scrollY);
+            if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
+                nav.style.position = "fixed";
+                nav.querySelector = nav.classList.add('sticky');
+            }
+            else{
+                nav.style.position = "static";
+                nav.querySelector = nav.classList.remove('sticky');
+            }
             wave1.style.backgroundPositionX = value * 0.8 + 'px';
             wave2.style.backgroundPositionX = 300 + value * -0.8 + 'px';
             wave3.style.backgroundPositionX = 250 + value * 1 + 'px';
